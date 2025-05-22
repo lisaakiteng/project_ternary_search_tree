@@ -22,3 +22,17 @@ class TstreeNode:
                 self._gt = TstreeNode(string)
             else:
                 self._gt._insert(string)
+
+
+class TernarySearchTree:
+
+    def __init__(self):
+        self._root = None
+
+    def insert(self, string):
+        if self._root is None:
+            self._root = TstreeNode(string)
+        else:
+            self._root._insert(string)
+            
+            
