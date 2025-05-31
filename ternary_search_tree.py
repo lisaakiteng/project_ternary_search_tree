@@ -35,13 +35,44 @@ class TstreeNode:
                 self._lt._insert(string)
             else:
                 self._lt._insert(string)
-
-
                 
-                
-    def _search(self, string):
-
-
+    def _search(self, string, check_prefix = False):
+        if string == '':
+            return string == ''
+        
+        first_char = string[0]
+        remaining_char = string[1:]
+        
+        if first_char == self._string:
+            if self._eq == None and remaining_char == '':
+                return True
+            elif self._eq == None and remaining_char != '':
+                return False
+            elif (not self._eq == None) and remaining_char == '':
+                if self._terminates:
+                    return True
+                if check_prefix:
+                    return True
+                else:
+                    return False
+            else:
+                if self._eq:
+                    pass
+                elif self._gt:
+                    pass
+                elif self._lt:
+                    pass
+                return self._eq._search(remaining_char, check_prefix)
+        elif first_char > self._string:
+            if self._gt == None:
+                return False
+            else:
+                return self._gt._search(string, check_prefix)
+        elif first_char < self._string:
+            if self._lt == None:
+                return False
+            else:
+                return self._lt._search(string, check_prefix)
 
 
 class TernarySearchTree:
