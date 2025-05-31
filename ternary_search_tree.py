@@ -83,7 +83,20 @@ class TstreeNode:
             if self._gt:
                 string += "\n_gt:" + self._gt.__str__(tab_length + 2)
             return string
-
+        
+     def all_strings(self, current_string=''):
+        string = current_string+self._string
+        if self._terminates:
+            return [string]
+        strings = []
+        if self._lt:
+            strings += self._lt.all_strings(current_string)
+        if self._eq:
+            strings += self._eq.all_strings(string)
+        if self._gt:
+            strings += self._gt.all_strings(current_string)
+        return strings
+    
 
 
 class TernarySearchTree:
