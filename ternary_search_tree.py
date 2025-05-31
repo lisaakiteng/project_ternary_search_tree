@@ -4,7 +4,6 @@ class TstreeNode:
         self._string = string
         self.terminates = False
         self._lt, self._eq, self._gt = None, None, None
-        
    
     def _insert(self, string):
         if string == '':
@@ -74,7 +73,7 @@ class TstreeNode:
             else:
                 return self._lt._search(string, check_prefix)
 
-    def __str__(self, tab_length=2):
+    def __str__(self, tab_length = 2):
             string = ("     " + " " * tab_length) + "char: " + self._string + ", Terminates: " + str(self._terminates)
             if self._lt:
                 string += "\n_lt:" + self._lt.__str__(tab_length + 2)
@@ -84,19 +83,7 @@ class TstreeNode:
                 string += "\n_gt:" + self._gt.__str__(tab_length + 2)
             return string
 
-    def __len__(self):
-            if self._terminates:
-                return 1
-            length = 0
-            if self._lt:
-                length += self._lt.__len__()
-            if self._eq:
-                length += self._eq.__len__()
-            if self._gt:
-                length += self._gt.__len__()
-            return length   
-        
-     def all_strings(self, current_string=''):
+    def all_strings(self, current_string=''):
         string = current_string+self._string
         if self._terminates:
             return [string]
@@ -108,7 +95,18 @@ class TstreeNode:
         if self._gt:
             strings += self._gt.all_strings(current_string)
         return strings
-    
+
+    def __len__(self):
+            if self._terminates:
+                return 1
+            length = 0
+            if self._lt:
+                length += self._lt.__len__()
+            if self._eq:
+                length += self._eq.__len__()
+            if self._gt:
+                length += self._gt.__len__()
+            return length      
 
 
 class TernarySearchTree:
@@ -117,5 +115,28 @@ class TernarySearchTree:
         self._root = None
 
     def insert(self, string):
-           
+        
+        
+    def search(self, string, check_prefix = True):
+        print(string.upper())
+        return self._root._search(string, check_prefix)
+    
+    def __str__(self):
+        
+    
+    def __repr__(self):
+        return self.__str__()
+    
+    def __len__(self):
+        
+        
+    def all_strings(self):
+        if self._root == None:
+            return[]
+        if self._root._string == '':
+            if self._root._gt == None:
+                return ['']
+            else:
+                return[''] + self._root._gt.all_strings()
+            return self._root.all_strings()
             
