@@ -74,6 +74,17 @@ class TstreeNode:
             else:
                 return self._lt._search(string, check_prefix)
 
+    def __str__(self, tab_length=2):
+            string = ("     " + " " * tab_length) + "char: " + self._string + ", Terminates: " + str(self._terminates)
+            if self._lt:
+                string += "\n_lt:" + self._lt.__str__(tab_length + 2)
+            if self._eq:    
+                string += "\n_eq:" + self._eq.__str__(tab_length + 2)
+            if self._gt:
+                string += "\n_gt:" + self._gt.__str__(tab_length + 2)
+            return string
+
+
 
 class TernarySearchTree:
 
