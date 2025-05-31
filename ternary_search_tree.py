@@ -84,7 +84,17 @@ class TstreeNode:
                 string += "\n_gt:" + self._gt.__str__(tab_length + 2)
             return string
 
-
+    def __len__(self):
+            if self._terminates:
+                return 1
+            length = 0
+            if self._lt:
+                length += self._lt.__len__()
+            if self._eq:
+                length += self._eq.__len__()
+            if self._gt:
+                length += self._gt.__len__()
+            return length   
 
 class TernarySearchTree:
 
