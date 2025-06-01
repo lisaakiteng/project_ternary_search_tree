@@ -1,11 +1,25 @@
 class TstreeNode:
+    """
+    Node class for Ternary Search Tree (TST)
+    Ecah node holds a single character and other attributes:
+    - _lt: left subtree for characters less than current character
+    - _eq: middle subtree for th enext character in the string
+    - _gt: right subtree for characters greater than current character
+    """
 
     def __init__(self, string):
+        """
+        Initialize a node with the given character
+        :param string: single character stored at this node
+        """
         self._string = string
-        self.terminates = False
-        self._lt, self._eq, self._gt = None, None, None
+        self.terminates = False  # True if character at this node marks the end of a string
+        self._lt, self._eq, self._gt = None, None, None # Left, Equal, and Greater child nodes
    
     def _insert(self, string):
+        """
+        Insert a string into the Ternary Search
+        """
         if string == '':
             self._terminates = True
             return
@@ -36,6 +50,12 @@ class TstreeNode:
                 self._lt._insert(string)
                 
     def _search(self, string, check_prefix = False):
+        """
+        Search for a string or prefix 
+        :param string: string to search
+        :param check_prefix: if True, return True if prefix found; else, require exact match
+        :return: True if string or prefix found, False otherwise
+        """
         if string == '':
             return string == ''
         
@@ -74,16 +94,22 @@ class TstreeNode:
                 return self._lt._search(string, check_prefix)
 
     def __str__(self, tab_length = 2):
-            string = ("     " + " " * tab_length) + "char: " + self._string + ", Terminates: " + str(self._terminates)
-            if self._lt:
-                string += "\n_lt:" + self._lt.__str__(tab_length + 2)
-            if self._eq:    
-                string += "\n_eq:" + self._eq.__str__(tab_length + 2)
-            if self._gt:
-                string += "\n_gt:" + self._gt.__str__(tab_length + 2)
-            return string
+        """
+        String representation of the Ternary Search Tree.
+        """
+        string = ("     " + " " * tab_length) + "char: " + self._string + ", Terminates: " + str(self._terminates)
+        if self._lt:
+            string += "\n_lt:" + self._lt.__str__(tab_length + 2)
+        if self._eq:    
+            string += "\n_eq:" + self._eq.__str__(tab_length + 2)
+        if self._gt:
+            string += "\n_gt:" + self._gt.__str__(tab_length + 2)
+        return string
 
     def all_strings(self, current_string=''):
+        """
+        Return a list of all stored in the Ternery Search Tree.
+        """
         string = current_string+self._string
         if self._terminates:
             return [string]
@@ -97,16 +123,19 @@ class TstreeNode:
         return strings
 
     def __len__(self):
-            if self._terminates:
-                return 1
-            length = 0
-            if self._lt:
-                length += self._lt.__len__()
-            if self._eq:
-                length += self._eq.__len__()
-            if self._gt:
-                length += self._gt.__len__()
-            return length      
+        """
+        Return the total number of strings stored in the Ternary Search Tree
+        """
+        if self._terminates:
+            return 1
+        length = 0
+        if self._lt:
+            length += self._lt.__len__()
+        if self._eq:
+            length += self._eq.__len__()
+        if self._gt:
+            length += self._gt.__len__()
+        return length      
 
 
 class TernarySearchTree:
