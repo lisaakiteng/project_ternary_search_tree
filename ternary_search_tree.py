@@ -144,6 +144,16 @@ class TernarySearchTree:
         self._root = None
 
     def insert(self, string):
+        if string == '':
+         if self._root._string == '':
+            return
+        
+            old_root = self._root
+            new_root = TstreeNode('')
+            new_root._gt = old_root
+            new_root._terminates = True
+            self._root = new_root
+            return
         
         
     def search(self, string, check_prefix = True):
