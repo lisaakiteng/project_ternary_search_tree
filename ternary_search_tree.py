@@ -181,6 +181,16 @@ class TernarySearchTree:
         return self.__str__()
     
     def __len__(self):
+        if self._root == None:
+            return 0
+
+        if self._root._string == '':
+            if self._root._gt == None:
+                return 0
+            else:
+                return 1 + len(self._root._gt)
+        else:
+            return len(self._root)
         
         
     def all_strings(self):
