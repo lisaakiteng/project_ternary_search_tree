@@ -155,12 +155,26 @@ class TernarySearchTree:
             self._root = new_root
             return
         
+        if self._root == None:
+            self._root = TstreeNode(string[0])
+        self._root._insert(string)
         
     def search(self, string, check_prefix = True):
         print(string.upper())
         return self._root._search(string, check_prefix)
     
     def __str__(self):
+        if self._root == None:
+            return ""
+
+        string = "terminates: "+str(self._root._terminates) + "\n"
+
+        if self._root._string == '':
+            if self._root._gt == None:
+                return string
+            else:
+                return string + self._root._gt.__str__()
+        return string + self._root.__str__()
         
     
     def __repr__(self):
