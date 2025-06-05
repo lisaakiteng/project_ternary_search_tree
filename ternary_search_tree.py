@@ -143,36 +143,46 @@ class TernarySearchTree:
 
     def insert(self, string):
         if string == '':
-            if self._root._string == '':
+            if self._root is None:  
+            # Create a root node with empty string and mark it terminates here
+                self._root = TstreeNode('')
+                self._root._terminates = True
+            elif self._root._string == '':
+                # Empty string already in the tree as root
                 return
-            old_root = self._root
-            new_root = TstreeNode('')
-            new_root._gt = old_root
-            new_root._terminates = True
-            self._root = new_root
-            return
+            else:
+                # If empty string, empty string becomes the root
+                old_root = self._root
+                new_root = TstreeNode('')
+                new_root._gt = old_root
+                new_root._terminates = True
+                self._root = new_root
+                return
+        # print(f"Inserting the string '{string}' in the tree.\n")
         if self._root == None:
+            # print(f"The tree is empty. We create the root node with the first letter '{string[0]}'.\n")
             self._root = TstreeNode(string[0])
         self._root._insert(string)
         
-    def search(self, string, check_prefix = True):
-        print(string.upper())
-        return self._root._search(string, check_prefix)
+    def search(self, string, exact=False):
+        if string == '':
+            # Return True if searching prefix of empty string (empty prefix is always a prefix)
+            return True if not exact else (
+                self._root is not None and self._root._string == '' and self._root._terminates
+            )
+        return self._root._search(string, check_prefix=not exact)
     
     def __str__(self):
         if self._root == None:
             return ""
-
         string = "terminates: "+str(self._root._terminates) + "\n"
-
         if self._root._string == '':
             if self._root._gt == None:
                 return string
             else:
                 return string + self._root._gt.__str__()
         return string + self._root.__str__()
-        
-    
+
     def __repr__(self):
         return self.__str__()
     
@@ -180,7 +190,7 @@ class TernarySearchTree:
         if self._root is None:
             return 0
         if self._root._string == '':
-            if self._root._gt == None:
+            if self._root._gt is None:
                 return 0
             else:
                 return 1 + len(self._root._gt)
