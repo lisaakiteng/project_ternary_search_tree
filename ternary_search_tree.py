@@ -1,9 +1,9 @@
 class TstreeNode:
     """
     Node class for Ternary Search Tree (TST)
-    Ecah node holds a single character and other attributes:
+    Each node holds a single character and other attributes:
     - _lt: left subtree for characters less than current character
-    - _eq: middle subtree for th enext character in the string
+    - _eq: middle subtree for the next character in the string
     - _gt: right subtree for characters greater than current character
     """
 
@@ -108,7 +108,7 @@ class TstreeNode:
 
     def all_strings(self, current_string=''):
         """
-        Return a list of all stored in the Ternery Search Tree.
+        Return a list of all stored strings in the Ternery Search Tree.
         """
         string = current_string + self._string
         strings = []
@@ -124,7 +124,7 @@ class TstreeNode:
 
     def __len__(self):
         """
-        Return the total number of strings stored in the Ternary Search Tree
+        Calculate and return the total number of strings stored in the Ternary Search Tree
         """
         length = 1 if self._terminates else 0
         if self._lt:
@@ -158,7 +158,6 @@ class TernarySearchTree:
                 new_root._terminates = True
                 self._root = new_root
                 return
-        # print(f"Inserting the string '{string}' in the tree.\n")
         if self._root == None:
             # print(f"The tree is empty. We create the root node with the first letter '{string[0]}'.\n")
             self._root = TstreeNode(string[0])
@@ -207,4 +206,3 @@ class TernarySearchTree:
             else:
                 return[''] + self._root._gt.all_strings()
         return self._root.all_strings()
-            
