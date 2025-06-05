@@ -13,7 +13,7 @@ class TstreeNode:
         :param string: single character stored at this node
         """
         self._string = string
-        self.terminates = False  # True if character at this node marks the end of a string
+        self._terminates = False  # True if character at this node marks the end of a string
         self._lt, self._eq, self._gt = None, None, None # Left, Equal, and Greater child nodes
    
     def _insert(self, string):
@@ -110,10 +110,10 @@ class TstreeNode:
         """
         Return a list of all stored in the Ternery Search Tree.
         """
-        string = current_string+self._string
-        if self._terminates:
-            return [string]
+        string = current_string + self._string
         strings = []
+        if self._terminates:
+            strings.append(string)
         if self._lt:
             strings += self._lt.all_strings(current_string)
         if self._eq:
@@ -126,9 +126,7 @@ class TstreeNode:
         """
         Return the total number of strings stored in the Ternary Search Tree
         """
-        if self._terminates:
-            return 1
-        length = 0
+        length = 1 if self._terminates else 0
         if self._lt:
             length += self._lt.__len__()
         if self._eq:
@@ -181,9 +179,8 @@ class TernarySearchTree:
         return self.__str__()
     
     def __len__(self):
-        if self._root == None:
+        if self._root is None:
             return 0
-
         if self._root._string == '':
             if self._root._gt == None:
                 return 0
@@ -194,12 +191,12 @@ class TernarySearchTree:
         
         
     def all_strings(self):
-        if self._root == None:
+        if self._root is None:
             return[]
         if self._root._string == '':
             if self._root._gt == None:
                 return ['']
             else:
                 return[''] + self._root._gt.all_strings()
-            return self._root.all_strings()
+        return self._root.all_strings()
             
