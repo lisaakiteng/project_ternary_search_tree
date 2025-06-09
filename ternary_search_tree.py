@@ -56,42 +56,27 @@ class TstreeNode:
         :param check_prefix: if True, return True if prefix found; else, require exact match
         :return: True if string or prefix found, False otherwise
         """
-        if string == '':
-            return string == ''
+        if not string:
+            return True
 
         first_char = string[0]
         remaining_char = string[1:]
 
         if first_char == self._string:
-            if self._eq is None and remaining_char == '':
-                return True
-            elif self._eq is None and remaining_char != '':
+            if not remaining_char:
+                return self._terminates or check_prefix
+            if self._eq is None:
                 return False
-            elif self._eq is not None and remaining_char == '':
-                if self._terminates:
-                    return True
-                if check_prefix:
-                    return True
-                else:
-                    return False
-            else:
-                if self._eq:
-                    pass
-                elif self._gt:
-                    pass
-                elif self._lt:
-                    pass
-                return self._eq._search(remaining_char, check_prefix)
+            return self._eq._search(remaining_char, check_prefix)
+        elif first_char < self._string:
+            if self._lt is None:
+                return False
+            return self._lt._search(string, check_prefix)
         elif first_char > self._string:
             if self._gt is None:
                 return False
             else:
                 return self._gt._search(string, check_prefix)
-        elif first_char < self._string:
-            if self._lt is None:
-                return False
-            else:
-                return self._lt._search(string, check_prefix)
 
     def __str__(self, tab_length=2):
         """
