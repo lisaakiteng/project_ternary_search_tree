@@ -1,0 +1,126 @@
+SLURM_JOB_ID: 64620218
+SLURM_JOB_USER: vsc37666
+SLURM_JOB_ACCOUNT: lp_h_ds_students
+SLURM_JOB_NAME: searchtestjob.slurm
+SLURM_CLUSTER_NAME: wice
+SLURM_JOB_PARTITION: batch
+SLURM_NNODES: 1
+SLURM_NODELIST: r33c20n4
+SLURM_JOB_CPUS_PER_NODE: 1
+Date: Wed Jun 11 17:18:57 CEST 2025
+Walltime: 00-00:20:00
+========================================================================
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) cluster/wice/batch
+
+The following have been reloaded with a version change:
+  1) GCCcore/13.2.0 => GCCcore/13.3.0
+  2) OpenSSL/1.1 => OpenSSL/3
+  3) Python/3.11.5-GCCcore-13.2.0 => Python/3.12.3-GCCcore-13.3.0
+  4) SQLite/3.43.1-GCCcore-13.2.0 => SQLite/3.45.3-GCCcore-13.3.0
+  5) Tcl/8.6.13-GCCcore-13.2.0 => Tcl/8.6.14-GCCcore-13.3.0
+  6) XZ/5.4.4-GCCcore-13.2.0 => XZ/5.4.5-GCCcore-13.3.0
+  7) binutils/2.40-GCCcore-13.2.0 => binutils/2.42-GCCcore-13.3.0
+  8) bzip2/1.0.8-GCCcore-13.2.0 => bzip2/1.0.8-GCCcore-13.3.0
+  9) libffi/3.4.4-GCCcore-13.2.0 => libffi/3.4.5-GCCcore-13.3.0
+ 10) libreadline/8.2-GCCcore-13.2.0 => libreadline/8.2-GCCcore-13.3.0
+ 11) ncurses/6.4-GCCcore-13.2.0 => ncurses/6.5-GCCcore-13.3.0
+ 12) zlib/1.2.13-GCCcore-13.2.0 => zlib/1.3.1-GCCcore-13.3.0
+
+
+Benchmark for nr_runs=30, k_search=50
+Size (words) |      Avg search time (ms)
+----------------------------------------
+         100 |                  0.067187
+         500 |                  0.096694
+        1000 |                  0.102932
+        5000 |                  0.124200
+       10000 |                  0.126275
+       20000 |                  0.137893
+       30000 |                  0.144021
+       40000 |                  0.150694
+       50000 |                  0.150021
+
+Benchmark for nr_runs=30, k_search=500
+Size (words) |      Avg search time (ms)
+----------------------------------------
+         100 |                  0.651273
+         500 |                  0.972272
+        1000 |                  0.995165
+        5000 |                  1.202501
+       10000 |                  1.294450
+       20000 |                  1.440205
+       30000 |                  1.485662
+       40000 |                  1.626816
+       50000 |                  1.524859
+
+Benchmark for nr_runs=30, k_search=1500
+Size (words) |      Avg search time (ms)
+----------------------------------------
+         100 |                  2.045344
+         500 |                  2.917249
+        1000 |                  3.025465
+        5000 |                  3.672744
+       10000 |                  3.934112
+       20000 |                  4.461965
+       30000 |                  4.765729
+       40000 |                  5.075248
+       50000 |                  4.859561
+
+Benchmark for nr_runs=30, k_search=5500
+Size (words) |      Avg search time (ms)
+----------------------------------------
+         100 |                  7.299297
+         500 |                 10.572078
+        1000 |                 10.977121
+        5000 |                 13.515059
+       10000 |                 14.538621
+       20000 |                 16.280155
+       30000 |                 17.327743
+       40000 |                 18.497602
+       50000 |                 17.541746
+
+Benchmark for nr_runs=30, k_search=10000
+Size (words) |      Avg search time (ms)
+----------------------------------------
+         100 |                 13.358703
+         500 |                 19.389472
+        1000 |                 19.975039
+        5000 |                 24.615821
+       10000 |                 26.366558
+       20000 |                 29.708220
+       30000 |                 31.556815
+       40000 |                 33.841611
+       50000 |                 32.018998
+
+Benchmark for nr_runs=30, k_search=20000
+Size (words) |      Avg search time (ms)
+----------------------------------------
+         100 |                 26.642407
+         500 |                 38.707745
+        1000 |                 40.185030
+        5000 |                 49.585159
+       10000 |                 52.948157
+       20000 |                 59.964991
+       30000 |                 63.629172
+       40000 |                 68.412919
+       50000 |                 65.276999
+
+Benchmark for nr_runs=30, k_search=30000
+Size (words) |      Avg search time (ms)
+----------------------------------------
+         100 |                 40.173289
+         500 |                 58.285542
+        1000 |                 59.764071
+        5000 |                 74.261068
+       10000 |                 79.531163
+       20000 |                 90.578508
+       30000 |                 96.115864
+       40000 |                103.889533
+       50000 |                 99.094279
+
+real	0m57.418s
+user	0m52.890s
+sys	0m0.143s
