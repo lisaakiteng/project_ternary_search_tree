@@ -48,7 +48,7 @@ for nr_runs in nr_runs_list:
 plt.figure(figsize=(12, 7))
 for (nr_runs, k_search), result in all_results.items():
     label = f"Words: {k_search}"
-    plt.plot(result.keys(), result.values(), marker='o', markersize=1.5, label=label)
+    plt.plot(result.keys(), result.values(), marker='o', markersize=1, label=label)
 
 plt.xlabel('Number of Words in Ternary Search Tree')
 plt.ylabel('Average Search Time (ms)')
