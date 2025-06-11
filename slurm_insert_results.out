@@ -1,0 +1,126 @@
+SLURM_JOB_ID: 58224285
+SLURM_JOB_USER: vsc37666
+SLURM_JOB_ACCOUNT: lp_h_ds_students
+SLURM_JOB_NAME: inserttestjob.slurm
+SLURM_CLUSTER_NAME: genius
+SLURM_JOB_PARTITION: batch
+SLURM_NNODES: 1
+SLURM_NODELIST: r27i13n01
+SLURM_JOB_CPUS_PER_NODE: 1
+Date: Wed Jun 11 18:08:51 CEST 2025
+Walltime: 00-00:20:00
+========================================================================
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) cluster/genius/batch
+
+The following have been reloaded with a version change:
+  1) GCCcore/13.2.0 => GCCcore/13.3.0
+  2) OpenSSL/1.1 => OpenSSL/3
+  3) Python/3.11.5-GCCcore-13.2.0 => Python/3.12.3-GCCcore-13.3.0
+  4) SQLite/3.43.1-GCCcore-13.2.0 => SQLite/3.45.3-GCCcore-13.3.0
+  5) Tcl/8.6.13-GCCcore-13.2.0 => Tcl/8.6.14-GCCcore-13.3.0
+  6) XZ/5.4.4-GCCcore-13.2.0 => XZ/5.4.5-GCCcore-13.3.0
+  7) binutils/2.40-GCCcore-13.2.0 => binutils/2.42-GCCcore-13.3.0
+  8) bzip2/1.0.8-GCCcore-13.2.0 => bzip2/1.0.8-GCCcore-13.3.0
+  9) libffi/3.4.4-GCCcore-13.2.0 => libffi/3.4.5-GCCcore-13.3.0
+ 10) libreadline/8.2-GCCcore-13.2.0 => libreadline/8.2-GCCcore-13.3.0
+ 11) ncurses/6.4-GCCcore-13.2.0 => ncurses/6.5-GCCcore-13.3.0
+ 12) zlib/1.2.13-GCCcore-13.2.0 => zlib/1.3.1-GCCcore-13.3.0
+
+
+Benchmark for nr_runs=30, k_insert=50
+Size (words) |   Avg insertion time (ms)
+----------------------------------------
+         100 |                  0.171184
+         500 |                  0.200088
+        1000 |                  0.200567
+        5000 |                  0.218321
+       10000 |                  0.198465
+       20000 |                  0.209126
+       30000 |                  0.206467
+       40000 |                  0.221921
+       50000 |                  0.201294
+
+Benchmark for nr_runs=30, k_insert=500
+Size (words) |   Avg insertion time (ms)
+----------------------------------------
+         100 |                  1.585429
+         500 |                  1.777441
+        1000 |                  1.699295
+        5000 |                  1.849606
+       10000 |                  1.928855
+       20000 |                  2.035135
+       30000 |                  2.007505
+       40000 |                  2.658367
+       50000 |                  2.340495
+
+Benchmark for nr_runs=30, k_insert=1500
+Size (words) |   Avg insertion time (ms)
+----------------------------------------
+         100 |                  5.603093
+         500 |                  6.059152
+        1000 |                  5.993499
+        5000 |                  6.216243
+       10000 |                  6.630836
+       20000 |                  6.582410
+       30000 |                  6.704640
+       40000 |                  7.110621
+       50000 |                  7.545845
+
+Benchmark for nr_runs=30, k_insert=5500
+Size (words) |   Avg insertion time (ms)
+----------------------------------------
+         100 |                 22.915133
+         500 |                 24.910768
+        1000 |                 23.671884
+        5000 |                 24.772784
+       10000 |                 25.984390
+       20000 |                 28.342956
+       30000 |                 28.867082
+       40000 |                 31.256193
+       50000 |                 28.856752
+
+Benchmark for nr_runs=30, k_insert=10000
+Size (words) |   Avg insertion time (ms)
+----------------------------------------
+         100 |                 43.420755
+         500 |                 48.027757
+        1000 |                 45.803118
+        5000 |                 40.163114
+       10000 |                 39.754330
+       20000 |                 43.478668
+       30000 |                 42.257269
+       40000 |                 44.330338
+       50000 |                 41.297274
+
+Benchmark for nr_runs=30, k_insert=20000
+Size (words) |   Avg insertion time (ms)
+----------------------------------------
+         100 |                 79.393682
+         500 |                 84.015366
+        1000 |                 77.740455
+        5000 |                 80.084396
+       10000 |                 79.552234
+       20000 |                 82.978934
+       30000 |                 84.276297
+       40000 |                 87.377443
+       50000 |                 82.934685
+
+Benchmark for nr_runs=30, k_insert=30000
+Size (words) |   Avg insertion time (ms)
+----------------------------------------
+         100 |                117.026613
+         500 |                124.903348
+        1000 |                122.083625
+        5000 |                123.427995
+       10000 |                121.654080
+       20000 |                124.867898
+       30000 |                123.241795
+       40000 |                133.747486
+       50000 |                122.754325
+
+real	1m25.550s
+user	1m24.240s
+sys	0m0.353s
